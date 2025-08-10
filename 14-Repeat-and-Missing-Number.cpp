@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Problem : https://www.geeksforgeeks.org/problems/find-missing-and-repeating2512/1
 // Bruteforce Approach with O(n^2) Time Complexity and O(1) Space Complexity
 class Solution
 {
