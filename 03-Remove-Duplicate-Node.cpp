@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Problem :
+// Problem : https://www.geeksforgeeks.org/problems/remove-duplicates-from-an-unsorted-linked-list/1
 /*
     The structure of linked list is the following
 */

@@ -2,7 +2,7 @@
 using namespace std;
 
 // Problem : https://www.geeksforgeeks.org/problems/nth-node-from-end-of-linked-list/0
-/* Node Class */
+
 struct Node
 {
     int data;

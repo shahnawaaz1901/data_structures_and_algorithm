@@ -1,9 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Problem :
+// Problem : https://www.geeksforgeeks.org/problems/remove-duplicate-element-from-sorted-linked-list/1
 
-/* Class */
 struct Node
 {
     int data;
