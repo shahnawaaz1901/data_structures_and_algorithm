@@ -53,7 +53,7 @@ public:
     }
 };
 
-// Optimal Approach with O(logn) Time Complexity and O(h) Space Complexity
+// Better Approach with O(logn) Time Complexity and O(h) Space Complexity
 class Solution
 {
 public:
@@ -83,6 +83,37 @@ public:
         else
         {
             return rightSide;
+        }
+    }
+};
+
+// Optimal Approach with O(h) Time Complexity and O(1) Space Complexity
+
+class Solution
+{
+public:
+    Node *LCA(Node *root, Node *n1, Node *n2)
+    {
+        // code here
+        if (root == NULL)
+        {
+            return NULL;
+        }
+
+        while (root != NULL)
+        {
+            if (root->data > n1->data && root->data > n2->data)
+            {
+                root = root->left;
+            }
+            else if (root->data < n2->data && root->data < n1->data)
+            {
+                root = root->right;
+            }
+            else
+            {
+                return root;
+            }
         }
     }
 };
