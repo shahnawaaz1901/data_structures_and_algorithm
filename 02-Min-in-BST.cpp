@@ -28,7 +28,7 @@ public:
     }
 };
 
-// Optimal Approach with O(logn) Time Complexity and O(h) Space Complexity
+// Better Approach with O(logn) Time Complexity and O(h) Space Complexity
 class Solution
 {
 public:
@@ -41,5 +41,23 @@ public:
         }
 
         return min(minValue(root->left), root->data);
+    }
+};
+
+// Optimal Approach with O(logn) Time Complexity and O(1) Space Complexity
+
+class Solution
+{
+public:
+    int minValue(Node *root)
+    {
+        // Code here
+        int minValue = INT_MAX;
+        while (root != NULL)
+        {
+            minValue = min(minValue, root->data);
+            root = root->left;
+        }
+        return minValue;
     }
 };
