@@ -191,3 +191,33 @@ public:
         return output;
     }
 };
+
+// Optimal Approach in O(n) Time Complexity and O(h) Space Complexity
+class Solution
+{
+public:
+    void helper(Node *root, vector<vector<int>> &output, int level)
+    {
+        if (root == NULL)
+        {
+            return;
+        }
+
+        if (level == output.size())
+        {
+            output.push_back({});
+        }
+
+        output[level].push_back(root->data);
+
+        helper(root->left, output, level + 1);
+        helper(root->right, output, level + 1);
+    }
+    vector<vector<int>> levelOrder(Node *root)
+    {
+        // code here
+        vector<vector<int>> output;
+        helper(root, output, 0);
+        return output;
+    }
+};
