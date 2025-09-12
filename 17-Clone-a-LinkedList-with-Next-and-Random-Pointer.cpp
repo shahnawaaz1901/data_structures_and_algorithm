@@ -93,3 +93,56 @@ public:
         return newHead;
     }
 };
+
+// Optimal Approach in O(n) Time Complexity and O(1) Space Complexity
+class Solution
+{
+public:
+    Node *cloneLinkedList(Node *head)
+    {
+        // code here
+        if (head == NULL)
+        {
+            return head;
+        }
+        Node *temp = head;
+        while (temp != NULL)
+        {
+            Node *newNode = new Node(temp->data);
+            newNode->next = temp->next;
+            temp->next = newNode;
+            temp = newNode->next;
+        }
+
+        temp = head;
+        Node *outputHead = temp->next;
+        Node *outputTail = outputHead;
+        while (outputTail != NULL && outputTail->next != NULL)
+        {
+            Node *randomPointer = temp->random;
+            outputTail->random = temp->random == NULL ? NULL : temp->random->next;
+            temp = temp->next->next;
+            outputTail = outputTail->next->next;
+        }
+        if (outputTail != NULL)
+        {
+            outputTail->random = temp->random == NULL ? NULL : temp->random->next;
+        }
+        temp = head;
+        outputTail = outputHead;
+        while (outputTail != NULL && outputTail->next != NULL)
+        {
+            temp->next = outputTail->next;
+            temp = temp->next;
+            outputTail->next = temp->next;
+            outputTail = outputTail->next;
+        }
+
+        if (temp != NULL)
+        {
+            temp->next = NULL;
+        }
+
+        return outputHead;
+    }
+};
